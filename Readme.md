@@ -336,3 +336,252 @@ Try to save this script as .py file and try to run it, it should give the calcul
 Demo-9 Funtion with Return Values  ( Return values  ( A function can return data as a result )
 ......................................................................................................
 		
+......................................................................................................
+Demo-10 Conditionals (if / else) & Boolean Data type
+......................................................................................................
+What if user enters nagetive value or text how to handle that in our script ?????
+For validating user Input	
+	which doesn't make sense
+	that could crash our program
+	could even be a security risk
+
+	
+Conditionals
+	Expressions that evaluate to either true or false
+		Equal: a==b
+		Not Equal: a != b
+		Less than: a < b
+		Greater than: a > b
+		Greater than or equal to: a >= b
+		
+.........................................................
+	def days_into_hrs(num_of_days):
+    if num_of_days > 0:
+        return f"{num_of_days} days have {num_of_days * calculation} {num_of_units}"
+    else:
+        return f"entered value is not a positive number, please enter valid input"
+.......................................................................
+
+Boolean value has two values true and false
+If condition is met it is true or else it is false
+
+	def days_into_hrs(num_of_days):
+		#This makes sure to print true or false
+		print(num_of_days > 0)
+		if num_of_days >= 0:
+			return f"{num_of_days} days have {num_of_days * calculation} {num_of_units}"
+		elif no_of_days == 0
+			return f"entered number is zero, please enter a valid number"
+		else:
+			return f"entered value is not a positive number, please enter valid input"
+
+......................................................................................................
+Demo-10 Conditionals (if / else) & Boolean Data type
+......................................................................................................
+	
+	
+	
+......................................................................................................
+Demo-11 More user input validations
+......................................................................................................
+
+What if user inputs some text instead of a + number how to ahndle it ????
+
+	user_input = input("hey user enter num of days i will provide minutes\n")
+	if user_input.isdigit():
+		user_input_num = int(user_input)
+		calculated_value = days_into_hrs(user_input_num)
+		print(calculated_value)
+	else:
+		print("entered input is not valid, please enter valid + number ")
+		
+Now my script will handle if the user input is not a +ve number ( non nagative, text, float input errors will be handled)
+		
+......................................................................................................
+Demo-11 More user input validations
+......................................................................................................
+
+
+......................................................................................................
+Demo-12  Clean up our script
+......................................................................................................
+
+def user_input_validation():
+    if user_input.isdigit():
+        user_input_num = int(user_input)
+        calculated_value = days_into_hrs(user_input_num)
+        print(calculated_value)
+    else:
+        print("enter a valid +ve number")
+user_input = input("hey user enter num of days i will provide minutes\n")
+user_input_validation()
+
+......................................................................................................
+Demo-12  Clean up our script
+......................................................................................................
+
+
+......................................................................................................
+Demo-13  Nested if...else
+......................................................................................................
+
+	def user_input_validation():
+    if user_input.isdigit():
+        user_input_num = int(user_input)
+        if user_input_num > 0:
+            calculated_value = days_into_hrs(user_input_num)
+            print(calculated_value)
+        elif user_input_num == 0:
+            return f"entered number is zero, please enter a valid +ve number"
+
+    else:
+        print("enter a valid +ve number")
+......................................................................................................
+Demo-13  Nested if...else
+......................................................................................................
+
+
+......................................................................................................
+Demo-14 Error handling Try/Except
+......................................................................................................
+
+The try block: lets you test a block of code for errors
+The except block: Catches the error and lets you handle it
+
+def user_input_validation():
+    try:
+        user_input_num = int(user_input)
+        if user_input_num > 0:
+            calculated_value = days_into_hrs(user_input_num)
+            print(calculated_value)
+        elif user_input_num == 0:
+            return f"entered number is zero, please enter a valid +ve number"
+        else:
+            print("entered number is invalid, please enter a valid +ve number")
+
+    except ValueError:
+        print("enter a valid +ve number")
+
+......................................................................................................
+Demo-14 Error handling Try/Except
+......................................................................................................
+
+
+......................................................................................................
+Demo-15 While loops
+......................................................................................................
+
+Looping
+	To execute logic multiple times
+	Python has 2 loop commands
+	
+Conditions
+	- evaluate to true or false
+	- Are used most commonly in "if statements" and "loops"
+	
+while True:
+    user_input = input("hey user enter num of days i will provide minutes\n")
+    user_input_validation() 
+	
+Now user enters any input conditons execues if it is true, and program does not crash if the value is non +ve 
+instead it will ask use agin to ener input
+
+Output:
+hey user enter num of days i will provide minutes
+50
+50 days have 72000 minutes
+hey user enter num of days i will provide minutes
+
+......................................................................................................
+Demo-15 While loops
+......................................................................................................
+
+
+......................................................................................................
+Demo-15 Lets user exit the program
+......................................................................................................
+With this change if user enters exit program exits
+
+#If we dont define first line while loop fails with user_input not defined error
+user_iput = ""
+while user_input != "exit":
+    user_input = input("hey user enter num of days i will provide minutes\n")
+    user_input_validation() 
+
+Output:
+20
+20 days have 28800 minutes
+hey user enter num of days i will provide minutes
+exit
+enter a valid +ve number
+
+Process finished with exit code 0
+
+......................................................................................................
+Demo-15 Lets user exit the program
+......................................................................................................
+
+
+......................................................................................................
+Demo-16 Lists and for loops
+......................................................................................................
+
+Data types we discussed so far are
+
+- string - any text in double quotes "test"
+- Float  - fraction numbers  like 1.1
+- Integer  - whole numbers
+- Boolean  - true or false
+
+List is an other data type To store multiple items in a single variable
+In our case we need to provide list of whole numbers 
+But list allow us to provide any datatype like group of stings or group of floating bumbers or list of boolean
+[10, 15, 40, 100, 200]
+
+Requirement here is for each value in the user list we want to execute user_input_validation() funtion
+How do we achive that ???? 
+
+we can achive that using For loops
+
+For Loop:
+	- is used for iterating over a sequence (like a list)
+	- So we can execute this for each item in the list
+	
+.........................................................
+
+#convert days into hours
+#n days * 24 hrs
+calculation =  24 * 60
+num_of_units = "minutes"
+
+
+def days_into_hrs(num_of_days):
+        return f"{num_of_days} days have {num_of_days * calculation} {num_of_units}"
+
+def user_input_validation():
+    try:
+        user_input_num = int(num_of_days_unit)
+        if user_input_num > 0:
+            calculated_value = days_into_hrs(user_input_num)
+            print(calculated_value)
+        elif user_input_num == 0:
+            return f"entered number is zero, please enter a valid +ve number"
+        else:
+            print("entered number is invalid, please enter a valid +ve number")
+
+    except ValueError:
+        print("enter a valid +ve number")
+
+user_input = ""
+while user_input != "exit":
+    user_input = input("hey user enter num of days as comma separated list i will convert days to minutes\n")
+    #input is a string that needs to be converted to list, which is done by split() function with ,
+    # which means input should be entered like this 10, 30, 60 based , split functon splits the inputs
+    for num_of_days_unit in user_input.split(","):
+        user_input_validation()
+
+.........................................................
+
+......................................................................................................
+Demo-16 Lists and for loops
+......................................................................................................

@@ -24,7 +24,9 @@ def user_input_validation():
 user_input = ""
 while user_input != "exit":
     user_input = input("hey user enter num of days as comma separated list i will convert days to minutes\n")
+    print(type(user_input.split()))
+    print(user_input.split(", "))
     #input is a string that needs to be converted to list, which is done by split() function with ,
     # which means input should be entered like this 10, 30, 60 based , split functon splits the inputs
-    for num_of_days_unit in user_input.split(","):
+    for num_of_days_unit in user_input.split(", "):
         user_input_validation()
